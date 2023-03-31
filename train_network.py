@@ -577,8 +577,9 @@ def train(args):
       saving = train_util.save_on_epoch_end(args, save_func, remove_old_func, epoch + 1, num_train_epochs)
       if saving and args.save_state:
         train_util.save_state_on_epoch_end(args, accelerator, model_name, epoch + 1)
-
-    train_util.sample_images(accelerator, args, epoch + 1, global_step, accelerator.device, vae, tokenizer, text_encoder, unet)
+    for i in range(10):
+      print('sample {0} is generating....'.formate(i))
+      train_util.sample_images(accelerator, args, epoch + 1, global_step, accelerator.device, vae, tokenizer, text_encoder, unet)
 
     # end of epoch
 
